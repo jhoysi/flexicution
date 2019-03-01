@@ -15,6 +15,29 @@ $flex-grid-gutter-width: 30px !default;
 // Generate semantic grid columns with these mixins.
 
 //
+// make-container()
+// ----------
+// Creates a fluid (or not) container for a series of rows
+// Based on Bootstrap's .container class
+
+@mixin make-container($max-width: null, $fluid: false) {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  
+  @if($max-width != null) {
+    max-width: $max-width;
+  }
+  @if($fluid == false) {
+    padding-right: 15px;
+    padding-left: 15px;
+  } else {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+//
 // make-row()
 // ----------
 // Creates a wrapper for a series of columns
